@@ -136,6 +136,8 @@ import json
 import os
 import requests
 
+print("Эта программа собирает данные о курсе валют")
+chosen_date = input("Введите дату для просмотра курса валют в формате 'дд.мм.гггг': ")
 
 class ParserCBRF:
     def __init__(self):
@@ -146,7 +148,7 @@ class ParserCBRF:
     def get_page(self):
         url = f"https://cbr.ru/currency_base/daily/?" \
               f"UniDbQuery.Posted=True&" \
-              f"UniDbQuery.To={self.today_human_date()}"
+              f"UniDbQuery.To={chosen_date}"
         r = requests.get(url)
         return r.text
 
